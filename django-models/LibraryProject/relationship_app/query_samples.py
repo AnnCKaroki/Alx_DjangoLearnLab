@@ -44,7 +44,7 @@ def create_sample_data():
 def get_books_by_author(author_name):
     try:
         author = Author.objects.get(name=author_name)
-        books = author.books.all()
+        books = Book.objects.filter(author=author)
         
         print(f"\nBooks by {author_name}:")
         for book in books:
