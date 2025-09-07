@@ -72,7 +72,7 @@ def get_books_in_library(library_name):
 def get_librarian_for_library(library_name):
     try:
         library = Library.objects.get(name=library_name)
-        librarian = library.librarian
+        librarian = Librarian.objects.get(library=library)
         
         print(f"\nLibrarian for {library_name}:")
         print(f"- {librarian.name}")
