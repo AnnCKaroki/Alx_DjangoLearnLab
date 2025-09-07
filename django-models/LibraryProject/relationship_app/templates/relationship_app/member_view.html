@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="alert alert-success">
+        <h1>Member Dashboard</h1>
+        <p>Welcome to the member dashboard. This area is restricted to members only.</p>
+    </div>
+    
+    <div class="card">
+        <div class="card-header">Member Actions</div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="{% url 'book_list' %}">Browse Books</a>
+                </li>
+                <!-- Add more member actions as needed -->
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

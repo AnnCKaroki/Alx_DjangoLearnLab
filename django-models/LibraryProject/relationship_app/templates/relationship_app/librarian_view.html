@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="alert alert-info">
+        <h1>Librarian Dashboard</h1>
+        <p>Welcome to the librarian dashboard. This area is restricted to librarians only.</p>
+    </div>
+    
+    <div class="card">
+        <div class="card-header">Librarian Actions</div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="{% url 'book_list' %}">View All Books</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{% url 'add_book' %}">Add New Book</a>
+                </li>
+                <!-- Add more librarian actions as needed -->
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="alert alert-primary">
+        <h1>Admin Dashboard</h1>
+        <p>Welcome to the admin dashboard. This area is restricted to administrators only.</p>
+    </div>
+    
+    <div class="card">
+        <div class="card-header">Admin Actions</div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="{% url 'add_book' %}">Add New Book</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{% url 'book_list' %}">Manage Books</a>
+                </li>
+                <!-- Add more admin actions as needed -->
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
