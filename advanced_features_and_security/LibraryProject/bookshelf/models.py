@@ -37,3 +37,9 @@ class Book(models.Model):
 
     class Meta:
         ordering = ['title']
+        permissions = [
+            ("can_view", "Can view book"),
+            ("can_create", "Can create book"),
+            ("can_edit", "Can edit book"),
+            ("can_delete", "Can delete book"),
+        ]
