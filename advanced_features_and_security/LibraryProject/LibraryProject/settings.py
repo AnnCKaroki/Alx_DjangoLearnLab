@@ -23,7 +23,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(_*^8w8kyzx^j2^bk)v&wr9vq11h6!7*2-+ps=^7*6!ig7@w^#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# django-csp adds Content Security Policy headers to help prevent XSS and other attacks.
+CSP_DEFAULT_SRC = ("'self'",)
+
 
 ALLOWED_HOSTS = []
 
@@ -39,11 +50,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bookshelf',
     'relationship_app',
+    'csp',  # django-csp adds Content Security Policy headers to help prevent XSS and other attacks.
 ]
 
 AUTH_USER_MODEL = 'bookshelf.CustomUser'
 
 MIDDLEWARE = [
+    'csp.middleware.CSPMiddleware',  # django-csp middleware for Content Security Policy
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
