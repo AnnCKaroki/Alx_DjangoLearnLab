@@ -26,11 +26,20 @@ SECRET_KEY = 'django-insecure-(_*^8w8kyzx^j2^bk)v&wr9vq11h6!7*2-+ps=^7*6!ig7@w^#
 DEBUG = False
 
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-SECURE_BROWSER_XSS_FILTER = True
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+SESSION_COOKIE_SECURE = True  # Ensures session cookies are only sent over HTTPS
+CSRF_COOKIE_SECURE = True     # Ensures CSRF cookies are only sent over HTTPS
+
+# X_FRAME_OPTIONS prevents your site from being rendered in a frame, protecting against clickjacking.
+# SECURE_CONTENT_TYPE_NOSNIFF prevents browsers from MIME-sniffing a response away from the declared content-type, reducing XSS risks.
+# SECURE_BROWSER_XSS_FILTER enables the browser's XSS filtering and helps prevent some XSS attacks.
 X_FRAME_OPTIONS = 'DENY'
 SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
 
 # django-csp adds Content Security Policy headers to help prevent XSS and other attacks.
 CSP_DEFAULT_SRC = ("'self'",)
