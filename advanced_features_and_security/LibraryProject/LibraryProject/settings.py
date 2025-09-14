@@ -146,3 +146,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# If your Django app is behind a proxy/load balancer that handles SSL (e.g., Nginx, Heroku),
+# this setting tells Django to trust the X-Forwarded-Proto header for determining if a request is secure.
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
